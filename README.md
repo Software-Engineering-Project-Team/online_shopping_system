@@ -28,37 +28,42 @@ The Online Shopping Project is a comprehensive web application designed to facil
 ## Product Spec
 1. User Stories
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
    
 2. UML Diagrams/Class Diagrams
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
-3. User Guides
+4. User Guides
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
 ## Sub-System Functionality
+What is happening on both ends of development.
+
 1. Front-end Fuctionality (The interface system with shop customers.)
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
 2. Back-end Functionality The interface system with storage managers (maintaining the items and checking orders).
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
 ## Database Management
+The web application is database driven and here is how it's implemented.
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
 ## Web Hosting for remote server support
 
 
 ## Demos
+A visual of the Responsive Web Design.
+
 1. Videos
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
 
 2. Images
 
-(***Fill in Once Completed****)
+*****Fill in Once Completed*****
