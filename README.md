@@ -41,7 +41,7 @@ The Online Shopping Project is a comprehensive web application designed to facil
 ## Sub-System Functionality
 What is happening on both ends of development.
 
-1. Front-end Fuctionality (The interface system with shop customers.)
+1. Front-end Functionality (The interface system with shop customers.)
 
 *****Fill in Once Completed*****
 
