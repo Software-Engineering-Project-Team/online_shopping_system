@@ -2,7 +2,7 @@
 
 ### Contributors
 - Damien Beltran (Front-end development)
-- Ethan Doan (Front-end developement)
+- Ethan Doan (Front-end development)
 - Brianna Anaya Carrasco (Front-end and Back-end developement / Database Management)
 - Jaelen Galindo (Front-end and Back-end Developement / Database Management
 - Kevin Henderson (Back-end developement / Database Management)
