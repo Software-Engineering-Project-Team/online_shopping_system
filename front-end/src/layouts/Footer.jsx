@@ -3,7 +3,7 @@
 function Footer() {
   return (
     <>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 bg-slate-50">
         <nav>
           <h6 className="footer-title">Services</h6> 
           <a className="link link-hover">Branding</a>
