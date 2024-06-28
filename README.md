@@ -4,7 +4,7 @@
 - Damien Beltran (Front-end development)
 - Ethan Doan (Front-end development)
 - Brianna Anaya Carrasco (Front-end and Back-end development / Database Management)
-- Jaelen Galindo (Front-end and Back-end Development / Database Management
+- Jaelen Galindo (Front-end and Back-end Development / Database Management)
 - Kevin Henderson (Back-end development / Database Management)
 
 ## Table of Contents
