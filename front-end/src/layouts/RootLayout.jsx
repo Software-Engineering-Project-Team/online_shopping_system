@@ -323,7 +323,107 @@ function RootLayout() {
             </div>
           </div>
         </div>
+    {/* 5th section begins here */}
+    <div className="mt-10">
+      {/* Image Container with Text Overlay */}
+      <div className="relative h-80 bg-gray-200 flex items-center justify-center mb-0">
+        {/* Image */}
+        <img
+          src="https://www.napoleon.com/sites/default/files/images/2023-05/grillsBlog-feature-Summer2023.jpg"
+          alt="Summer Savings Banner"
+          className="object-cover h-full w-full"
+        />
+        {/* Text Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold bg-black bg-opacity-50 ">
+          <span>Enjoy Summer with your Family & Friends with Promotions all Season Long</span>
+        </div>
+      </div>
 
+      {/* Summer Promos */}
+      <div className="p-4 bg-yellow-100">
+        <div className="flex space-x-4 overflow-x-auto">
+          {/* Promo 1 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  Buy 2, Get 1 Free
+                </h2>
+                <p>12 pk soda, only including Coca-Cola brands.</p>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Special</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://134775575.cdn6.editmysite.com/uploads/1/3/4/7/134775575/s376408477758671052_p5_i1_w700.jpeg"
+                  alt="Coke Cans"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>
+
+          {/* Promo 2 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  $5 off when you buy $20 of Burger Meat
+                  <div className="badge bg-success ml-2">NEW</div>
+                </h2>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Special</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://www.eatingwell.com/thmb/aKA6WL4j01orJ6F7v9bF4PH6B7Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/air-fryer-cheeseburgers-9e0cf0071bcb4b8d9bc806cabfb61347.jpg"
+                  alt="Foodie's Burger"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>
+
+          {/* Promo 3 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  $1 off Full Sized Foodie's Watermelon
+                  <div className="badge bg-success ml-2">NEW</div>
+                </h2>
+                <p>Offer ends 07/25.</p>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Seasonal</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/seasonal-produce/2018-05/watermelon.jpg?itok=WlQcb2Uh"
+                  alt="Watermelon"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>        
+        </div>
+      </div>
+    </div>
+        
       </main>
     </>
   )
