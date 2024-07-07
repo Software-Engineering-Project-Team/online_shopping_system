@@ -3,7 +3,7 @@ import HeroImage from '../assets/bg-hero.png'; // adjust the path to your actual
 import FoodImage from '../assets/food-hero.png'; // adjust the path to your actual food-hero.png file
 import { FaEnvelope } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import ExploreProducts from '../ExploreProducts';
+import ExploreProducts from '../components/ExploreProducts';
 
 function RootLayout() {
   return (
