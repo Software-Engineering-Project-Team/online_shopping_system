@@ -77,7 +77,7 @@ function RootLayout() {
               </h2>
               <p>Pure, flavorful, heart-healthy, and Mediterranean inspired olive oil.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8">Add to Cart</button> {/*Potential DaisyUI Component for responsive button*/}
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[116px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Olive Oil</div>
               </div>
             </div>
@@ -96,6 +96,7 @@ function RootLayout() {
               </h2>
               <p>Indulge in IZZE Sparkling Apple Juice: crisp, real, naturally sweet.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[50px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Sparkling Water</div>
               </div>
             </div>
@@ -114,6 +115,7 @@ function RootLayout() {
               </h2>
               <p>Delicately smoked for zesty farmhouse fresh flavor in every slice.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[50px] mt-[10px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Meat</div>
                 <div className="badge badge-outline">Turkey</div>
               </div>
@@ -144,6 +146,7 @@ function RootLayout() {
               </h2>
               <p>Our delicious lemonade is made simply, with natural ingredients and a delicate balance of sweet and sour.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-80px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Juice</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
@@ -163,6 +166,7 @@ function RootLayout() {
               </h2>
               <p>Real vanilla blended in creamy Greek Yogurt. Made with only natural ingredients.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-10px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Dairy</div>
               </div>
             </div>
@@ -181,6 +185,7 @@ function RootLayout() {
               </h2>
               <p>A thirst-quenching drink that combines a juicy, fruit-forward flavor, super-charged hydration taste.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-10px] mr-[40px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fitness</div>
               </div>
             </div>
@@ -210,6 +215,7 @@ function RootLayout() {
               </h2>
               <p>Whip up delicious, rich mashed potatoes in minutes with Idahoan Mashed Potatoes.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Vegetable</div>
               </div>
             </div>
@@ -228,6 +234,7 @@ function RootLayout() {
               </h2>
               <p>A Spicy, bold chicken flavor, fiery, and intensely satisfying of South Korean ramen.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[120px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Instant Noodle</div>
                 <div className="badge badge-outline">South Korean</div>
               </div>
@@ -247,6 +254,7 @@ function RootLayout() {
               </h2>
               <p>Flavored with cold-pressed juice from organic Pink Lady Apples.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[17px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fermented tea</div>
                 <div className="badge badge-outline">Probiotic</div>
               </div>
@@ -274,10 +282,11 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Belvoir Farm - Organic Elderflower Lemonade
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>A Refreshing, floral, lemony, sparkling, natural goodness taste of Elderflower lemonade.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Organic</div>
               </div>
             </div>
@@ -293,10 +302,11 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Daves Killer Bread - Good Seed
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>Bold, Hearty, Sweet. Heavenly texture and saintly flavor, Good Seed is the boldest and sweetest of our breads.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[40px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Bakery</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
@@ -313,10 +323,11 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Apple Organic Slices
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>Fresh, crisp, and organic apple slices with convenient, healthy, naturally sweetness for taste.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fruit</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
