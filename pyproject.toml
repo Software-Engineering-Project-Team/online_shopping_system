@@ -10,6 +10,8 @@ dependencies = [
     "pydantic>=2.7.4",
     "uvicorn[standard]>=0.30.1",
     "sqlmodel>=0.0.19",
+    "mariadb>=1.1.10",
+    "passlib>=1.7.4",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
