@@ -7,6 +7,14 @@ from .user import (
     UserUpdateMe,
     UpdatePassword,
     User,
+)
+
+from .public_item import (
+    ItemPublic,
+    ItemsPublic,
+)
+
+from .public_user import (
     UserPublic,
     UsersPublic,
 )
@@ -22,4 +30,6 @@ __all__ = [
     "User",
     "UserPublic",
     "UsersPublic",
+    "ItemPublic",
+    "ItemsPublic",
 ]
