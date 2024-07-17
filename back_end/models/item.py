@@ -1,6 +1,9 @@
 # models/item.py
 from sqlmodel import SQLModel, Field, Relationship
-from .user import User
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .user import User
 
 
 class ItemBase(SQLModel):
@@ -12,7 +15,7 @@ class ItemBase(SQLModel):
     """
 
     title: str = Field(min_length=1, max_length=255)
-    description: str | None = Field(default=None, max_length=255)
+    description: Optional[str] = Field(default=None, max_length=255)
 
 
 class ItemCreate(ItemBase):
@@ -24,7 +27,7 @@ class ItemCreate(ItemBase):
     """
 
     title: str = Field(min_length=1, max_length=255)
-    description: str | None = Field(default=None, max_length=255)
+    description: Optional[str] = Field(default=None, max_length=255)
 
 
 class ItemUpdate(ItemBase):
@@ -35,8 +38,8 @@ class ItemUpdate(ItemBase):
         description (Optional[str]): The description of the item. Defaults to None.
     """
 
-    title: str | None = Field(default=None, min_length=1, max_length=255)  # type: ignore
-    description: str | None = Field(default=None, max_length=255)
+    title: Optional[str] = Field(default=None, min_length=1, max_length=255)  # type: ignore
+    description: Optional[str] = Field(default=None, max_length=255)
 
 
 class Item(ItemBase, table=True):
@@ -49,7 +52,7 @@ class Item(ItemBase, table=True):
         owner (Optional[User]): The owner of the item.
     """
 
-    id: int | None = Field(default=None, primary_key=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     title: str = Field(max_length=255)
-    owner_id: int | None = Field(default=None, foreign_key="user.id", nullable=False)
-    owner: User | None = Relationship(back_populates="items")
+    owner_id: Optional[int] = Field(default=None, foreign_key="user.id", nullable=False)
+    owner: Optional["User"] = Relationship(back_populates="items")

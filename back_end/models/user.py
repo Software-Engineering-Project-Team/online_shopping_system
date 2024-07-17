@@ -1,9 +1,11 @@
 # models/user.py
-from sqlmodel import SQLModel, Field, Relationship
-from typing import Optional
+from sqlmodel import SQLModel, Field, Relationship, Column, String
+from typing import Optional, TYPE_CHECKING
 from pydantic import BaseModel, EmailStr
 from back_end.core.security import get_password_hash
-from back_end.models.item import Item
+
+if TYPE_CHECKING:
+    from .item import Item
 
 
 class UserBase(SQLModel):
@@ -17,17 +19,17 @@ class UserBase(SQLModel):
 
     email: EmailStr = Field(unique=True, index=True, max_length=255)
     is_active: Optional[bool] = True
-    full_name: str | None = Field(default=None, max_length=255)
+    full_name: Optional[str] = Field(default=None, max_length=255)
 
 
 class UserResponse(BaseModel):
     id: int
     email: EmailStr
     is_active: bool
-    full_name: str | None
+    full_name: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserCreate(UserBase):
@@ -51,7 +53,7 @@ class UserRegister(SQLModel):
 
     email: EmailStr = Field(max_length=255)
     password: str = Field(min_length=8, max_length=40)
-    full_name: str | None = Field(default=None, max_length=255)
+    full_name: Optional[str] = Field(default=None, max_length=255)
 
 
 class UserUpdate(UserBase):
@@ -62,8 +64,8 @@ class UserUpdate(UserBase):
         password (Optional[str]): The password for the user, must be between 8 and 40 characters. Defaults to None.
     """
 
-    email: EmailStr | None = Field(default=None, max_length=255)  # type: ignore
-    password: str | None = Field(default=None, min_length=8, max_length=40)
+    email: Optional[EmailStr] = Field(default=None, max_length=255)  # type: ignore
+    password: Optional[str] = Field(default=None, min_length=8, max_length=40)
 
     def hash_password(self):
         if self.password:
@@ -78,8 +80,8 @@ class UserUpdateMe(SQLModel):
         password (Optional[str]): The password for the user, must be between 8 and 40 characters. Defaults to None.
     """
 
-    email: EmailStr | None = Field(default=None, max_length=255)  # type: ignore
-    password: str | None = Field(default=None, min_length=8, max_length=40)
+    email: Optional[EmailStr] = Field(default=None, max_length=255)  # type: ignore
+    password: Optional[str] = Field(default=None, min_length=8, max_length=40)
 
 
 class UpdatePassword(SQLModel):
@@ -103,8 +105,10 @@ class User(UserBase, table=True):
         items (list[Item]): The list of items associated with the user.
     """
 
-    id: int | None = Field(default=None, primary_key=True)
-    hashed_password: str
+    __tablename__ = "users"  # Explicitly set the table name
+
+    id: Optional[int] = Field(default=None, primary_key=True)
+    hashed_password: str = Field(sa_column=Column(String(255)))
     items: list["Item"] = Relationship(back_populates="owner")
 
     def hash_password(self):

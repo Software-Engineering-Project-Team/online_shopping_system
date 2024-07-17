@@ -19,6 +19,11 @@ from .public_user import (
     UsersPublic,
 )
 
+from .order import Order  # Import Order
+from .discount_code import DiscountCode  # Import DiscountCode
+from .sales_item import SalesItem  # Import SalesItem
+from .item import Item  # Import Item
+
 __all__ = [
     "UserBase",
     "UserResponse",
@@ -32,4 +37,8 @@ __all__ = [
     "UsersPublic",
     "ItemPublic",
     "ItemsPublic",
+    "Item",
+    "Order",  # Add Order to __all__
+    "DiscountCode",  # Add DiscountCode to __all__
+    "SalesItem",  # Add SalesItem to __all__
 ]

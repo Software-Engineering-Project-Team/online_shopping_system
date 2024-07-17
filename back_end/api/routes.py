@@ -1,6 +1,16 @@
+from typing import List
 from fastapi import APIRouter, HTTPException, Depends, Request
 from sqlmodel import Session, select
-from back_end.models.db_models import UserResponse, UserCreate, UserUpdate, User, Item
+from back_end.models import (
+    UserResponse,
+    UserCreate,
+    UserUpdate,
+    User,
+    Item,
+    Order,
+    DiscountCode,
+    SalesItem,
+)
 from back_end.database import engine
 from back_end.core.security import get_password_hash
 
@@ -115,3 +125,123 @@ def update_user(user_id: int, user: UserUpdate, db: Session = Depends(get_sessio
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+@router.put("/items/{item_id}", response_model=Item)
+def update_item(item_id: int, item: Item, db: Session = Depends(get_session)):
+    """
+    Update an existing item.
+
+    Args:
+        item_id (int): The ID of the item to update.
+        item (Item): The item data to update.
+        db (Session): The database session.
+
+    Returns:
+        Item: The updated item.
+
+    Raises:
+        HTTPException: If the item is not found.
+    """
+    db_item = db.exec(select(Item).where(Item.id == item_id)).first()
+    if not db_item:
+        raise HTTPException(status_code=404, detail="Item not found")
+    for key, value in item.dict(exclude_unset=True).items():
+        setattr(db_item, key, value)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+
+@router.post("/discount_codes/", response_model=DiscountCode)
+def create_discount_code(
+    discount_code: DiscountCode, db: Session = Depends(get_session)
+):
+    """
+    Create a new discount code.
+
+    Args:
+        discount_code (DiscountCode): The discount code data.
+        db (Session): The database session.
+
+    Returns:
+        DiscountCode: The created discount code.
+    """
+    db.add(discount_code)
+    db.commit()
+    db.refresh(discount_code)
+    return discount_code
+
+
+@router.post("/sales_items/", response_model=SalesItem)
+def create_sales_item(sales_item: SalesItem, db: Session = Depends(get_session)):
+    """
+    Create a new sales item.
+
+    Args:
+        sales_item (SalesItem): The sales item data.
+        db (Session): The database session.
+
+    Returns:
+        SalesItem: The created sales item.
+    """
+    db.add(sales_item)
+    db.commit()
+    db.refresh(sales_item)
+    return sales_item
+
+
+@router.get("/orders/current", response_model=List[Order])
+def get_current_orders(db: Session = Depends(get_session)):
+    """
+    Get all currently placed orders.
+
+    Args:
+        db (Session): The database session.
+
+    Returns:
+        List[Order]: A list of current orders.
+    """
+    orders = db.exec(select(Order).where(Order.status == "current")).all()
+    return orders
+
+
+@router.get("/orders/history", response_model=List[Order])
+def get_order_history(sort_by: str = "date", db: Session = Depends(get_session)):
+    """
+    Get the history of orders with sorting options.
+
+    Args:
+        sort_by (str): The sorting criteria (date, customer, amount).
+        db (Session): The database session.
+
+    Returns:
+        List[Order]: A list of historical orders sorted by the specified criteria.
+    """
+    query = select(Order).where(Order.status == "completed")
+    if sort_by == "date":
+        query = query.order_by(Order.date)
+    elif sort_by == "customer":
+        query = query.order_by(Order.customer_id)
+    elif sort_by == "amount":
+        query = query.order_by(Order.total_amount)
+    orders = db.exec(query).all()
+    return orders
+
+
+@router.post("/items/", response_model=Item)
+def create_item(item: Item, db: Session = Depends(get_session)):
+    """
+    Create a new item for sale.
+
+    Args:
+        item (Item): The item data.
+        db (Session): The database session.
+
+    Returns:
+        Item: The created item.
+    """
+    db.add(item)
+    db.commit()
+    db.refresh(item)
+    return item
