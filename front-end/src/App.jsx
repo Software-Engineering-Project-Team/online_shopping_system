@@ -26,6 +26,8 @@ import FanFavoritesProducts from './components/FanFavoritesProducts';
 import SeasonalProducts from './components/SeasonalProducts';
 import BBQProducts from './components/BBQProducts';
 import HealthyLivingProducts from './components/HealthyLivingProducts';
+import LoginPage from './layouts/LoginPage';
+import RegisterPage from './layouts/RegisterPage';
 
 function App() {
   return (
@@ -55,6 +57,8 @@ function App() {
         <Route path="/seasonal" element={<SeasonalProducts />} />
         <Route path="/bbq" element={<BBQProducts />} />
         <Route path="/healthy-living" element={<HealthyLivingProducts />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </Router>
