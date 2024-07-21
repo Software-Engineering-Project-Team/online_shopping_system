@@ -1,4 +1,7 @@
 import React from 'react';
+import bgHero from '../assets/bg-hero.png';
+import Header from './Header';
+import ProductCard from './ProductCard';
 
 const alcoholProducts = [
   { category: 'Beer', name: 'Lager', description: 'Crisp and refreshing lager', image: 'https://m.media-amazon.com/images/I/71xDaHTK10L._AC_UL320_.jpg', identifiers: ['Beer'], price: '13.99' },
@@ -28,29 +31,11 @@ const sortedAlcoholProducts = alcoholProducts.sort((a, b) => a.category.localeCo
 
 const AlcoholProducts = () => {
   return (
-    <div className="container mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-6 text-center">Alcohol Products</h2>
-      <div className="flex flex-wrap justify-center gap-6">
+    <div className="container mx-auto py-8 px-4 bg-green-200">
+      <Header title="Alcohol" bgImage={bgHero} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedAlcoholProducts.map((product) => (
-          <div key={product.name} className="card bg-base-100 w-72 shadow-xl">
-            <figure className="h-48 flex items-center justify-center bg-white">
-              <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain" />
-            </figure>
-            <div className="card-body flex flex-col justify-between">
-              <div>
-                <h2 className="card-title flex justify-center mb-4">{product.name}</h2>
-                <p className="card-description flex justify-center">{product.description}</p>
-              </div>
-              <div className="card-actions flex flex-row items-center">
-                <button className="btn btn-xs sm:btn-sm md:btn-sm lg:btn-sm m-2">Add to Cart</button>
-                <div className="flex flex-col gap-1 ml-2">
-                  {product.identifiers.map((identifier) => (
-                    <div key={identifier} className="badge badge-outline">{identifier}</div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductCard key={product.name} product={product} />
         ))}
       </div>
     </div>

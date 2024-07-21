@@ -47,7 +47,7 @@ export const categories = [
   { name: 'Personal Care', description: 'Personal care products, hygiene, and health supplements', image: personalCareIcon, bgColor: '#FFFFFF', link: '/personal-care' },
   { name: 'Fan Favorites', description: 'Popular items among customers', image: fanFavoritesIcon, bgColor: '#FFFFFF', link: '/fan-favorites' },
   { name: 'Seasonal Products', description: 'Temporary sections for holiday or seasonal items', image: seasonalIcon, bgColor: '#FFFFFF', link: '/seasonal' },
-  { name: 'BBQ & Picnic', description: 'Items for outdoor grilling and picnics', image: bbqIcon, bgColor: '#FFFFFF', link: '/bbq' },
+  { name: 'BBQ', description: 'Items for outdoor grilling and picnics', image: bbqIcon, bgColor: '#FFFFFF', link: '/bbq' },
   { name: 'Healthy Living', description: 'Organic, gluten-free, and health-conscious products', image: healthyLivingIcon, bgColor: '#FFFFFF', link: '/healthy-living' },
 ];
 
