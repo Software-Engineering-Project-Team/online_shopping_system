@@ -25,7 +25,6 @@ import bbqIcon from '../assets/Categories/bbq.png';
 import healthyLivingIcon from '../assets/Categories/healthyLiving.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 export const categories = [
   { name: 'See All Products', description: 'Browse our entire product range', image: allProductsIcon, bgColor: 'bg-green-100', link: '/all-products', isTextOnly: true },
   { name: 'New', description: 'Recently added products', image: newIcon, bgColor: '#FFFFFF', link: '/new' },
@@ -44,18 +43,16 @@ export const categories = [
   { name: 'Baby Items', description: 'Baby food, diapers, and kids\' snacks', image: babyIcon, bgColor: '#FFFFFF', link: '/baby' },
   { name: 'Pet Supplies', description: 'Pet food, toys, and other pet-related products', image: petIcon, bgColor: '#FFFFFF', link: '/pet' },
   { name: 'Household Essentials', description: 'Cleaning supplies, paper goods, and household items', image: householdIcon, bgColor: '#FFFFFF', link: '/household' },
-  { name: 'Personal Care', description: 'Personal care products, vitamins, and health supplements', image: personalCareIcon, bgColor: '#FFFFFF', link: '/personal-care' },
+  { name: 'Personal Care', description: 'Personal care products, hygiene, and health supplements', image: personalCareIcon, bgColor: '#FFFFFF', link: '/personal-care' },
   { name: 'Fan Favorites', description: 'Popular items among customers', image: fanFavoritesIcon, bgColor: '#FFFFFF', link: '/fan-favorites' },
   { name: 'Seasonal Products', description: 'Temporary sections for holiday or seasonal items', image: seasonalIcon, bgColor: '#FFFFFF', link: '/seasonal' },
   { name: 'BBQ & Picnic', description: 'Items for outdoor grilling and picnics', image: bbqIcon, bgColor: '#FFFFFF', link: '/bbq' },
   { name: 'Healthy Living', description: 'Organic, gluten-free, and health-conscious products', image: healthyLivingIcon, bgColor: '#FFFFFF', link: '/healthy-living' },
 ];
-
 const ExploreProducts = () => {
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
   const navigate = useNavigate();
-
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -63,23 +60,19 @@ const ExploreProducts = () => {
     slidesToScroll: 6,
     slidesToShow: 6
   };
-
   const handleMouseDown = (event) => {
     setStartX(event.clientX);
     setStartY(event.clientY);
   };
-
   const handleMouseUp = (event, link) => {
     const endX = event.clientX;
     const endY = event.clientY;
     const distanceX = Math.abs(endX - startX);
     const distanceY = Math.abs(endY - startY);
-
     if (distanceX < 5 && distanceY < 5) {
       navigate(link);
     }
   };
-
   return (
     <div className="explore-products p-10 bg-white rounded-lg shadow-lg my-10">
       <style>
@@ -117,5 +110,4 @@ const ExploreProducts = () => {
     </div>
   );
 };
-
 export default ExploreProducts;
