@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -29,8 +29,17 @@ export const beveragesProducts = [
   { id: 5022, category: 'Smoothies', name: 'Green Smoothie', description: 'Healthy green smoothie', image: 'https://m.media-amazon.com/images/I/71PaE4GMMyL._AC_UL320_.jpg', identifiers: ['Smoothies'], price: '5.99', availability: 10 },
 ];
 
-const BeveragesProducts = ({ searchQuery, sortType }) => {
+export const newBeveragesProducts = [
+  { id: 5023, category: 'Juices', name: 'Pomegranate Juice', description: 'Fresh pomegranate juice', image: 'https://m.media-amazon.com/images/I/51P54Mr1o+L._AC_UL320_.jpg', identifiers: ['Juices'], price: '4.99', availability: 10 },
+  { id: 5024, category: 'Soft Drinks', name: 'Root Beer', description: 'Classic root beer', image: 'https://m.media-amazon.com/images/I/81ZlLH-TBLL._AC_UL320_.jpg', identifiers: ['Soft Drinks'], price: '1.99', availability: 10 }
+];
+
+const BeveragesProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(beveragesProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

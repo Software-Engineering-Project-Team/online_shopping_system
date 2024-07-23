@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -35,8 +35,17 @@ export const babyProducts = [
   { id: 2028 , category: 'Furniture', name: 'High Chair', description: 'Adjustable baby high chair', image: 'https://m.media-amazon.com/images/I/61b0cpfILEL._AC_UL320_.jpg', identifiers: ['Furniture'], price: '99.99', availability: 10 },
 ];
 
-const BabyProducts = ({ searchQuery, sortType }) => {
+export const newBabyProducts = [
+  { id: 2029, category: 'Toys', name: 'Stacking Rings', description: 'Colorful stacking rings', image: 'https://m.media-amazon.com/images/I/61o4QiMW3JL._AC_UL320_.jpg', identifiers: ['Toys'], price: '7.99', availability: 10 },
+  { id: 2030, category: 'Clothing', name: 'Baby Booties', description: 'Soft cotton baby booties', image: 'https://m.media-amazon.com/images/I/71vbFRnOiyL._AC_UL320_.jpg', identifiers: ['Clothing'], price: '6.99', availability: 10 }
+];
+
+const BabyProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(babyProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

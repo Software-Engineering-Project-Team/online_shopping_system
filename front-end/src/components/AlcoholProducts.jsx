@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -27,9 +27,18 @@ export const alcoholProducts = [
   { id: 1020, category: 'Non-Alcoholic', name: 'Non-Alcoholic Beer', description: 'Alcohol-free beer', image: 'https://m.media-amazon.com/images/I/71199-v5HvL._AC_UL320_.jpg', identifiers: ['Non-Alcoholic'], price: '18.99', availability: 10},
 ];
 
+export const newAlcoholProducts = [
+  { id: 1021, category: 'Wine', name: 'Rosé', description: 'Light and fruity Rosé', image: 'https://m.media-amazon.com/images/I/710jhhmHnRL._AC_UL320_.jpg', identifiers: ['Wine'], price: '12.99', availability: 10 },
+  { id: 1022, category: 'Beer', name: 'Craft Lager', description: 'Specialty craft lager', image: 'https://m.media-amazon.com/images/I/911xb2gbb7L._AC_UL320_.jpg', identifiers: ['Beer'], price: '14.99', availability: 10 }
+];
 
-const AlcoholProducts = ({ searchQuery, sortType }) => {
+
+const AlcoholProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(alcoholProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

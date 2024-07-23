@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -30,8 +30,17 @@ export const bbqProducts = [
   { id: 4023, category: 'Cookware', name: 'Griddle', description: 'Reversible grill and griddle', image: 'https://m.media-amazon.com/images/I/81TwQoZnnFL._AC_UL320_.jpg', identifiers: ['Cookware'], price: '39.99', availability: 10 },
 ];
 
-const BBQProducts = ({ searchQuery, sortType }) => {
+export const newBBQProducts = [
+  { id: 4024, category: 'Grills', name: 'Portable Gas Grill', description: 'Compact portable gas grill', image: 'https://m.media-amazon.com/images/I/51Ru0L1OoGL._AC_UL320_.jpg', identifiers: ['Grills'], price: '59.99', availability: 10 },
+  { id: 4025, category: 'Sauces', name: 'BBQ Sauce', description: 'Spicy BBQ sauce', image: 'https://m.media-amazon.com/images/I/71w+mwXwsUL._AC_UL320_.jpg', identifiers: ['Sauces'], price: '5.99', availability: 10 }
+];
+
+const BBQProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(bbqProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

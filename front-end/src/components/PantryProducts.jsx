@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -37,9 +37,17 @@ export const pantryProducts = [
   { id: 14030 , category: 'Pasta', name: 'Fusilli', description: 'Spiral-shaped fusilli pasta', image: 'https://m.media-amazon.com/images/I/510NkHG3wjL._AC_UL320_.jpg', identifiers: ['Pasta', 'Organic'], price: '1.99', availability: 10 },
 ];
 
-const PantryProducts = ({ searchQuery, sortType }) => {
+export const newPantryProducts = [
+  { id: 14031, category: 'Pasta', name: 'Shells', description: 'Organic pasta shells', image: 'https://m.media-amazon.com/images/I/51gJpUDMnbL._AC_UL320_.jpg', identifiers: ['Pasta'], price: '2.99', availability: 10 },
+  { id: 14032, category: 'Canned Goods', name: 'Cranberry Sauce', description: 'Canned cranberry sauce', image: 'https://m.media-amazon.com/images/I/61O5oo07laL._AC_UL320_.jpg', identifiers: ['Canned Goods'], price: '1.99', availability: 10 }
+];
+
+const PantryProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(pantryProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Pantry Essentials" bgImage={bgHero} />

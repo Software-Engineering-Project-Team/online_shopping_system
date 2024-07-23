@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -37,8 +37,17 @@ export const dairyProducts = [
   { id: 7030, category: 'Eggs', name: 'Eggs, Extra Large', description: 'Grade A X-Large eggs', image: 'https://m.media-amazon.com/images/I/818fmz+2SRL._SX679_.jpg', identifiers: ['Eggs'], price: '3.99', availability: 10 },
 ];
 
-const DairyProducts = ({ searchQuery, sortType }) => {
+export const newDairyProducts = [
+  { id: 7031, category: 'Cheese', name: 'Cheese Assortment', description: 'Cheese block assortment', image: 'https://m.media-amazon.com/images/I/51Vz3kt14-L._SX300_SY300_QL70_FMwebp_.jpg', identifiers: ['Cheese'], price: '30.99', availability: 10 },
+  { id: 7032, category: 'Milk', name: 'Almond Milk', description: 'Unsweetened almond milk', image: 'https://m.media-amazon.com/images/I/51SvtcjdUeL._AC_UL320_.jpg', identifiers: ['Milk'], price: '3.99', availability: 10 }
+];
+
+const DairyProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(dairyProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

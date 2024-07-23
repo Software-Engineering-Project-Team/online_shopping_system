@@ -11,7 +11,7 @@ const SearchBar = ({ setSearchQuery }) => {
     if (inputValue.length > 0) {
       const query = inputValue.toLowerCase();
       const filtered = allProducts.filter(product =>
-        product && 
+        product &&
         (product.name.toLowerCase().includes(query) ||
         product.description.toLowerCase().includes(query) ||
         product.identifiers.some(identifier => identifier.toLowerCase().includes(query)))
@@ -44,14 +44,16 @@ const SearchBar = ({ setSearchQuery }) => {
     setInputValue(event.target.value);
   };
 
-  const handleProductClick = (productName) => {
-    setSearchQuery(productName);
-    navigate('/search');
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchQuery(inputValue);
+    setFilteredProducts([]);  // Hide dropdown
+    navigate('/search');
+  };
+
+  const handleProductClick = (product) => {
+    setSearchQuery(product.name);
+    setFilteredProducts([]); 
     navigate('/search');
   };
 
@@ -71,7 +73,7 @@ const SearchBar = ({ setSearchQuery }) => {
           {filteredProducts.map(product => (
             <div
               key={product.id}
-              onClick={() => handleProductClick(product.name)}
+              onClick={() => handleProductClick(product)}
               className="block p-2 hover:bg-gray-200 cursor-pointer"
             >
               {product.name}

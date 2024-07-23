@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -36,9 +36,17 @@ export const produceProducts = [
   { id: 17029 , category: 'Vegetables', name: 'Asparagus', description: 'Fresh asparagus', image: 'https://m.media-amazon.com/images/I/71rpY2GtFHL._AC_UL320_.jpg', identifiers: ['Vegetables'], price: '2.99', availability: 10 },
 ];
 
-const ProduceProducts = ({ searchQuery, sortType }) => {
+export const newProduceProducts = [
+  { id: 17030, category: 'Fruits', name: 'Avacado', description: 'Fresh and ripe Avacado', image: 'https://m.media-amazon.com/images/I/81LKLCmdAQL._AC_UL320_.jpg', identifiers: ['Fruits'], price: '1.99', availability: 10 },
+  { id: 17031, category: 'Vegetables', name: 'Blackberries', description: 'Fresh blackberries', image: 'https://m.media-amazon.com/images/I/71Ia-osdbkL._AC_UL320_.jpg', identifiers: ['Vegetables'], price: '2.99', availability: 10 }
+];
+
+const ProduceProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(produceProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Fresh Produce" bgImage={bgHero} />

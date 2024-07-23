@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -37,8 +37,17 @@ export const healthyLivingProducts = [
   { id: 11030, category: 'Household', name: 'Natural Air Freshener', description: 'Essential oil-based air freshener', image: 'https://m.media-amazon.com/images/I/51nN49Usm0L._AC_UL320_.jpg', identifiers: ['Household', 'Healthy'], price: '6.99', availability: 10 },
 ];
 
-const HealthyLivingProducts = ({ searchQuery, sortType }) => {
+export const newHealthyLivingProducts = [
+  { id: 11031, category: 'Snacks', name: 'Veggie Chips', description: 'Crispy wavy veggie chips', image: 'https://m.media-amazon.com/images/I/81vz-USEpOL._AC_UL320_.jpg', identifiers: ['Snacks'], price: '4.99', availability: 10 },
+  { id: 11032, category: 'Beverages', name: 'Green Smoothie Powder', description: 'Organic green smoothie powder', image: 'https://m.media-amazon.com/images/I/81I4N7dwSXL._AC_UL320_.jpg', identifiers: ['Beverages'], price: '3.99', availability: 10 }
+];
+
+const HealthyLivingProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(healthyLivingProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

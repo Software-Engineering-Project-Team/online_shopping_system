@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -7,7 +7,7 @@ import useSortedProducts from '../hooks/useSortedProducts';
 export const deliProducts = [
   { id: 8001, category: 'Cold Cuts', name: 'Turkey Breast', description: 'Oven-roasted turkey breast', image: 'https://m.media-amazon.com/images/I/61I2vyZ1AcL._AC_UL320_.jpg', identifiers: ['Cold Cuts'], price: '7.99', availability: 10 },
   { id: 8002, category: 'Cold Cuts', name: 'Ham', description: 'Black Forest ham', image: 'https://m.media-amazon.com/images/I/51f7T-1EerL._SX679_.jpg', identifiers: ['Cold Cuts'], price: '6.99', availability: 10 },
-  { id: 8003, category: 'Cold Cuts', name: 'Roast Beef', description: 'Thinly sliced roast beef', image: 'https://m.media-amazon.com/images/I/61lhN2m9dwL._AC_UL320_.jpg', identifiers: ['Cold Cuts'], price: '8.99', availability: 10 },
+  { id: 8003, category: 'Cold Cuts', name: 'Roast Beef', description: 'Sliced roast beef', image: 'https://m.media-amazon.com/images/I/61lhN2m9dwL._AC_UL320_.jpg', identifiers: ['Cold Cuts'], price: '8.99', availability: 10 },
   { id: 8004, category: 'Cheese', name: 'Swiss Cheese', description: 'Creamy Swiss cheese', image: 'https://m.media-amazon.com/images/I/71KPaFJG02L._AC_UL320_.jpg', identifiers: ['Cheese'], price: '5.99', availability: 10 },
   { id: 8005, category: 'Cheese', name: 'Provolone Cheese', description: 'Sharp Provolone cheese', image: 'https://m.media-amazon.com/images/I/51REMTb-ulL._AC_UL320_.jpg', identifiers: ['Cheese'], price: '6.99', availability: 10 },
   { id: 8006, category: 'Prepared Foods', name: 'Chicken Salad', description: 'Homemade chicken salad', image: 'https://m.media-amazon.com/images/I/7124-Z-ySJL._AC_UL320_.jpg', identifiers: ['Prepared Foods'], price: '4.99', availability: 10 },
@@ -35,9 +35,17 @@ export const deliProducts = [
   { id: 8028, category: 'Prepared Foods', name: 'Chicken Tenders', description: 'Crispy chicken tenders', image: 'https://m.media-amazon.com/images/I/61MNLD4jTUL._AC_UL320_.jpg', identifiers: ['Prepared Foods'], price: '5.99', availability: 10 },
 ];
 
+export const newDeliProducts = [
+  { id: 8029, category: 'Cheese', name: 'Mild Cheddar', description: 'Mild cheddar cheese slices', image: 'https://m.media-amazon.com/images/I/51G+GvKO5ZL._AC_UL320_.jpg', identifiers: ['Cheese'], price: '8.99', availability: 10 },
+  { id: 8030, category: 'Cold Cuts', name: 'Roast Beef, Ultra Thin', description: 'Thin Sliced roast beef', image: 'https://m.media-amazon.com/images/I/91CpJroZm+L._AC_UL320_.jpg', identifiers: ['Cold Cuts'], price: '10.99', availability: 10 }
+];
 
-const DeliProducts = ({ searchQuery, sortType }) => {
+const DeliProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(deliProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

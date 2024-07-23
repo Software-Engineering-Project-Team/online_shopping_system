@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -32,8 +32,17 @@ export const meatProducts = [
   { id: 13025, category: 'Fresh Meat', name: 'Beef Brisket', description: 'Fresh beef brisket', image: 'https://m.media-amazon.com/images/I/61+9SL3a4ML._AC_UL320_.jpg', identifiers: ['Fresh'], price: '7.99', availability: 10 },
 ];
 
-const MeatProducts = ({ searchQuery, sortType }) => {
+export const newMeatProducts = [
+  { id: 13026, category: 'Fresh Meat', name: 'Lamb Rib Chops', description: 'Lamb chops', image: 'https://m.media-amazon.com/images/I/81PBhtytHIL._AC_UL320_.jpg', identifiers: ['Fresh'], price: '14.99', availability: 10 },
+  { id: 13027, category: 'Fresh Meat', name: 'Kielbasa', description: 'Beef Kielbasa', image: 'https://m.media-amazon.com/images/I/61DqDQS5a0L._AC_UL320_.jpg', identifiers: ['Fresh'], price: '4.99', availability: 10 }
+];
+
+const MeatProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(meatProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

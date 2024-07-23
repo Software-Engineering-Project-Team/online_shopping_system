@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -34,9 +34,17 @@ export const snacksProducts = [
   { id: 19027, category: 'Trail Mix', name: 'Spicy Trail Mix', description: 'Spicy nuts and dried fruit mix', image: 'https://m.media-amazon.com/images/I/81AtLkmw+nL._AC_UL320_.jpg', identifiers: ['Trail Mix'], price: '7.99', availability: 10 },
 ];
 
-const SnacksProducts = ({ searchQuery, sortType }) => {
+export const newSnacksProducts = [
+  { id: 19028, category: 'Chips', name: 'Kettle Cooked Chips', description: 'Extra crunchy kettle cooked chips', image: 'https://m.media-amazon.com/images/I/71QAvn0XGjL._AC_UL320_.jpg', identifiers: ['Chips'], price: '4.99', availability: 10 },
+  { id: 19029, category: 'Candy', name: 'Sour Gummy Worms', description: 'Gluten free sour gummy worms', image: 'https://m.media-amazon.com/images/I/71weFslL3ZL._AC_UL320_.jpg', identifiers: ['Candy'], price: '2.99', availability: 10 }
+];
+
+const SnacksProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(snacksProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Snacks" bgImage={bgHero} />

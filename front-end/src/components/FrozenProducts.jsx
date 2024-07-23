@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -35,8 +35,17 @@ export const frozenProducts = [
   { id: 10028, category: 'Desserts', name: 'Frozen Cake', description: 'Frozen pound cake', image: 'https://m.media-amazon.com/images/I/91pPdSe34UL._AC_UL320_.jpg', identifiers: ['Desserts'], price: '5.99', availability: 10 },
 ];
 
-const FrozenProducts = ({ searchQuery, sortType }) => {
+export const newFrozenProducts = [
+  { id: 10029, category: 'Meals', name: 'Frozen Lasagna', description: 'Lasagna Italiano', image: 'https://m.media-amazon.com/images/I/81zg-saTXaL._AC_UL320_.jpg', identifiers: ['Meals'], price: '12.99', availability: 10 },
+  { id: 10030, category: 'Vegetables', name: 'Frozen Veggies', description: 'Frozen stir-fry blend', image: 'https://m.media-amazon.com/images/I/51pO3UxflXL._AC_UL320_.jpg', identifiers: ['Vegetables'], price: '2.99', availability: 10 }
+];
+
+const FrozenProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(frozenProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

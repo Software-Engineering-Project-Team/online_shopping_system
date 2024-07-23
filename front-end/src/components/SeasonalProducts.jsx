@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -27,9 +27,18 @@ export const seasonalProducts = [
   { id: 18020, category: 'Summer', name: 'Portable Fan', description: 'Rechargeable portable fan', image: 'https://m.media-amazon.com/images/I/51o4dM3Nv+L._AC_SY300_SX300_.jpg', identifiers: ['Summer'], price: '19.99', availability: 10 },
 ];
 
-const SeasonalProducts = ({ searchQuery, sortType }) => {
+export const newSeasonalProducts = [
+  { id: 18021, category: 'Summer', name: 'Party Supplies', description: 'Beach themed party supplies', image: 'https://m.media-amazon.com/images/I/81iVLvNoQQL._AC_UL320_.jpg', identifiers: ['Winter'], price: '24.99', availability: 10 },
+  { id: 18022, category: 'Summer', name: 'Waterproof Speaker', description: 'Portable waterproof speaker', image: 'https://m.media-amazon.com/images/I/81LMfazlxZL._AC_UL320_.jpg', identifiers: ['Fall'], price: '5.99', availability: 10 }
+];
+
+const SeasonalProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(seasonalProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
+  
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Seasonal Products" bgImage={bgHero} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -14,7 +14,7 @@ export const petProducts = [
   { id: 16007 , category: 'Treats', name: 'Cat Treats', description: 'Tasty cat treats', image: 'https://m.media-amazon.com/images/I/81i7VGMRPVL._AC_UL320_.jpg', identifiers: ['Treats'], price: '6.99', availability: 10 },
   { id: 16008 , category: 'Treats', name: 'Bird Treats', description: 'Flavorful bird treats', image: 'https://m.media-amazon.com/images/I/71Nfg4rRY9L._AC_UL320_.jpg', identifiers: ['Treats'], price: '4.99', availability: 10 },
   { id: 16009 , category: 'Treats', name: 'Fish Treats', description: 'Nutritious fish treats', image: 'https://m.media-amazon.com/images/I/71m6h6fkpIL._AC_UL320_.jpg', identifiers: ['Treats'], price: '3.99', availability: 10 },
-  { id: 16010 , category: 'Treats', name: 'Rabbit Treats', description: 'Pet Healthy rabbit treats', image: 'https://m.media-amazon.com/images/I/81eehEUcrtL._AC_UL320_.jpg', identifiers: ['Treats'], price: '5.99', availability: 10 },
+  { id: 16010 , category: 'Treats', name: 'Rabbit Treats', description: 'Pet rabbit treats', image: 'https://m.media-amazon.com/images/I/81eehEUcrtL._AC_UL320_.jpg', identifiers: ['Treats'], price: '5.99', availability: 10 },
   { id: 16011 , category: 'Toys', name: 'Dog Toy', description: 'Chewable dog toy', image: 'https://m.media-amazon.com/images/I/51xZagVf1VL._AC_UL320_.jpg', identifiers: ['Toys'], price: '9.99', availability: 10 },
   { id: 16012 , category: 'Toys', name: 'Cat Toy', description: 'Interactive cat toy', image: 'https://m.media-amazon.com/images/I/615Ccf+wziL._AC_UL320_.jpg', identifiers: ['Toys'], price: '8.99', availability: 10 },
   { id: 16013 , category: 'Toys', name: 'Bird Toy', description: 'Colorful bird toy', image: 'https://m.media-amazon.com/images/I/71fqKszwGRL._AC_UL320_.jpg', identifiers: ['Toys'], price: '6.99', availability: 10 },
@@ -37,9 +37,17 @@ export const petProducts = [
   { id: 16030 , category: 'Bedding', name: 'Rabbit Bedding', description: 'Soft rabbit bedding', image: 'https://m.media-amazon.com/images/I/91EUpHN4zPL._AC_UL320_.jpg', identifiers: ['Bedding'], price: '10.99', availability: 10 },
 ];
 
-const PetProducts = ({ searchQuery, sortType }) => {
+export const newPetProducts = [
+  { id: 16031, category: 'Toys', name: 'Stain & Odor Eliminator', description: 'Pet Odor Eliminator for Home', image: 'https://m.media-amazon.com/images/I/61pzPQSDW4L._AC_UL320_.jpg', identifiers: ['Toys'], price: '5.99', availability: 10 },
+  { id: 16032, category: 'Food', name: 'Dog waste bags', description: 'Dog waste bags for cleanup', image: 'https://m.media-amazon.com/images/I/71VS+j2jAZL._AC_UL320_.jpg', identifiers: ['Food'], price: '8.99', availability: 10 }
+];
+
+const PetProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(petProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Pet Supplies" bgImage={bgHero} />

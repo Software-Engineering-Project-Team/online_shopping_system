@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -36,8 +36,17 @@ export const bakeryProducts = [
   { id: 3030, category: 'Pastry', name: 'Baklava', description: 'Sweet and flaky baklava', image: 'https://m.media-amazon.com/images/I/31uC5AaEBnL._SX300_SY300_QL70_FMwebp_.jpg', identifiers: ['Pastry'], price: '7.99', availability: 10 },
 ];
 
-const BakeryProducts = ({ searchQuery, sortType }) => {
+export const newBakeryProducts = [
+  { id: 3031, category: 'Pastry', name: 'Bear Claw', description: 'Almond-filled pastry', image: 'https://m.media-amazon.com/images/I/81Q0ttKvR1L._AC_UL320_.jpg', identifiers: ['Pastry'], price: '3.99', availability: 10 },
+  { id: 3032, category: 'Bread', name: 'Rye Bread', description: 'Traditional rye bread', image: 'https://m.media-amazon.com/images/I/91UkPn1kSoL._AC_UL320_.jpg', identifiers: ['Bread'], price: '4.99', availability: 10 }
+];
+
+const BakeryProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(bakeryProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

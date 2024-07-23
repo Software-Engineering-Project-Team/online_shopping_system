@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -37,9 +37,17 @@ export const personalCareProducts = [
   { id: 15030 , category: 'Skin Care', name: 'Body Scrub', description: 'Exfoliating body scrub', image: 'https://m.media-amazon.com/images/I/81hSMhzB1ML._AC_UL320_.jpg', identifiers: ['Skin Care'], price: '11.99', availability: 10 },
 ];
 
-const PersonalCareProducts = ({ searchQuery, sortType }) => {
+export const newPersonalCareProducts = [
+  { id: 15031, category: 'Hair Care', name: 'Shampoo', description: 'Organic shampoo', image: 'https://m.media-amazon.com/images/I/61YSg1spuxL._AC_UL320_.jpg', identifiers: ['Hair Care'], price: '9.99', availability: 10 },
+  { id: 15032, category: 'Skin Care', name: 'Tongue Scrapers', description: 'Steel tongue scrapers for adults', image: 'https://m.media-amazon.com/images/I/81iVh2nCYrL._AC_UL320_.jpg', identifiers: ['Skin Care'], price: '7.99', availability: 10 }
+];
+
+const PersonalCareProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(personalCareProducts, searchQuery, sortType);
 
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Personal Care" bgImage={bgHero} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -36,8 +36,18 @@ export const breakfastProducts = [
   { id: 6029, category: 'Sandwiches and Skillets', name: 'Breakfast Sandwich', description: 'Sausage, egg, and cheese sandwich', image: 'https://m.media-amazon.com/images/I/81RnR+e7BpL._AC_UL320_.jpg', identifiers: ['Sandwiches and Skillets'], price: '2.99', availability: 10 },
   { id: 6030, category: 'Sandwiches and Skillets', name: 'Breakfast Burrito', description: 'Egg, cheese, and bacon burrito', image: 'https://m.media-amazon.com/images/I/61plkGUY8vL._AC_UL320_.jpg', identifiers: ['Sandwiches and Skillets'], price: '3.99', availability: 10 },
 ];
-const BreakfastProducts = ({ searchQuery, sortType }) => {
+
+export const newBreakfastProducts = [
+  { id: 6031, category: 'Cereals', name: 'Granola, Oats & Honey', description: 'Crunchy honey granola', image: 'https://m.media-amazon.com/images/I/81CCp0QmNpL._AC_UL320_.jpg', identifiers: ['Cereals'], price: '4.99', availability: 10 },
+  { id: 6032, category: 'Pancakes', name: 'Pancake & Waffle Mix', description: 'Tasty pancake & waffle mix', image: 'https://m.media-amazon.com/images/I/71O0klzifyL._AC_UL320_.jpg', identifiers: ['Pancakes'], price: '3.99', availability: 10 }
+];
+
+const BreakfastProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(breakfastProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">

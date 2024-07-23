@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
@@ -37,8 +37,17 @@ export const householdProducts = [
   { id: 12030, category: 'Household Essentials', name: 'Sandwich Bags', description: 'Reusable sandwich bags', image: 'https://m.media-amazon.com/images/I/81Ii8dv4haL._AC_UL320_.jpg', identifiers: ['Household Essentials'], price: '3.99', availability: 10 },
 ];
 
-const HouseholdProducts = ({ searchQuery, sortType }) => {
+export const newHouseholdProducts = [
+  { id: 12031, category: 'Cleaning Supplies', name: 'Multisurface Cleaner', description: 'Multisurface Windex', image: 'https://m.media-amazon.com/images/I/71DG+fSeSJL._AC_UL320_.jpg', identifiers: ['Cleaning Supplies'], price: '3.99', availability: 10 },
+  { id: 12032, category: 'Laundry', name: 'Fabric Softener', description: 'Lavender-scented fabric softener', image: 'https://m.media-amazon.com/images/I/71UJulPOZdL._AC_UL320_.jpg', identifiers: ['Laundry'], price: '6.99', availability: 10 }
+];
+
+const HouseholdProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(householdProducts, searchQuery, sortType);
+
+  useEffect(() => {
+    setSearchQuery('');
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
