@@ -26,11 +26,16 @@ import FanFavoritesProducts from './components/FanFavoritesProducts';
 import SeasonalProducts from './components/SeasonalProducts';
 import BBQProducts from './components/BBQProducts';
 import HealthyLivingProducts from './components/HealthyLivingProducts';
-import SearchResults from './components/SearchResults';
+
+import CheckoutSummary from './components/CheckoutSummary';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortType, setSortType] = useState('');
+  const [cart, setCart] = useState([]);
+  
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
 
   return (
     <Router>
@@ -60,6 +65,7 @@ function App() {
         <Route path="/bbq" element={<BBQProducts searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
         <Route path="/healthy-living" element={<HealthyLivingProducts searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
         <Route path="/search" element={<SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
+
       </Routes>
       <Footer />
     </Router>
