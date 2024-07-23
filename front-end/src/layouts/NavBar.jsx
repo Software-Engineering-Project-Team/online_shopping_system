@@ -1,9 +1,11 @@
+
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { Link } from "react-router-dom"; 
 
-function Navbar() {
+
+function NavBar({ setSearchQuery, setSortType }) {
   return (
     <>
       <div className="navbar bg-slate-50 flex justify-between items-center">
@@ -37,7 +39,8 @@ function Navbar() {
         </div>
       </div>
     </>
-  )
+  );
 }
+
 
 export default Navbar;
