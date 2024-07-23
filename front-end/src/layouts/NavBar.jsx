@@ -1,8 +1,10 @@
-import { FaShoppingCart, FaSearch} from "react-icons/fa";
+import React from 'react';
+import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IconContext } from "react-icons";
+import SearchBar from "../components/SearchBar";
 
-function Navbar() {
+function NavBar({ setSearchQuery, setSortType }) {
   return (
     <>
       <div className="navbar bg-slate-50 flex justify-between items-center">
@@ -14,17 +16,12 @@ function Navbar() {
             Foodie
           </a>
         </div>
-        <div className=" m-4">
-          <input type="text" placeholder="Search Products..." className="input input-bordered w-full md:w-auto bg-[#30C976] rounded-none bg-opacity-10" />
-          <a href="" className="btn btn-ghost bg-[#30C976] rounded-none bg-opacity-80">
-            <IconContext.Provider value={{ color: "#fff" }}>
-              <FaSearch size={24} />
-            </IconContext.Provider>
-          </a>
+        <div className="m-4 relative">
+          <SearchBar setSearchQuery={setSearchQuery} />
         </div>
         <div className="flex justify-between gap-x-4 w-full md:w-auto">
           <button tabIndex={0} className="btn btn-ghost rounded-none bg-[#30C976] text-xl text-white">
-          Cart
+            Cart
             <IconContext.Provider value={{ color: "#fff" }}>
               <MdOutlineShoppingCart size={24} />
             </IconContext.Provider>
@@ -34,7 +31,7 @@ function Navbar() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default NavBar;
