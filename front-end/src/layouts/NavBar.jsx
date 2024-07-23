@@ -2,7 +2,8 @@
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
 
 
 function NavBar({ setSearchQuery, setSortType }) {
@@ -10,12 +11,12 @@ function NavBar({ setSearchQuery, setSortType }) {
     <>
       <div className="navbar bg-slate-50 flex justify-between items-center">
         <div className="flex-none">
-          <a className="btn btn-ghost text-xl">
+          <Link to="/" className="btn btn-ghost text-xl">
             <IconContext.Provider value={{ color: "#30C976" }}>
               <FaShoppingCart size={36} />
             </IconContext.Provider>
             Foodie
-          </a>
+          </Link>
         </div>
         <div className="m-4">
           <input type="text" placeholder="Search Products..." className="input input-bordered w-full md:w-auto bg-[#30C976] rounded-none bg-opacity-10" />
