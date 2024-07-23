@@ -30,7 +30,6 @@ function RootLayout() {
         </div>
         <ExploreProducts />
 
-
         {/*
         Updated code starts here, below are recent changes: 
         - Top Sold Items that list 3 items that are considered to be highly sellable
@@ -78,7 +77,7 @@ function RootLayout() {
               </h2>
               <p>Pure, flavorful, heart-healthy, and Mediterranean inspired olive oil.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8">Add to Cart</button> {/*Potential DaisyUI Component for responsive button*/}
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[116px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Olive Oil</div>
               </div>
             </div>
@@ -97,6 +96,7 @@ function RootLayout() {
               </h2>
               <p>Indulge in IZZE Sparkling Apple Juice: crisp, real, naturally sweet.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[50px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Sparkling Water</div>
               </div>
             </div>
@@ -115,6 +115,7 @@ function RootLayout() {
               </h2>
               <p>Delicately smoked for zesty farmhouse fresh flavor in every slice.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[50px] mt-[10px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Meat</div>
                 <div className="badge badge-outline">Turkey</div>
               </div>
@@ -145,6 +146,7 @@ function RootLayout() {
               </h2>
               <p>Our delicious lemonade is made simply, with natural ingredients and a delicate balance of sweet and sour.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-80px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Juice</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
@@ -164,6 +166,7 @@ function RootLayout() {
               </h2>
               <p>Real vanilla blended in creamy Greek Yogurt. Made with only natural ingredients.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-10px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Dairy</div>
               </div>
             </div>
@@ -182,6 +185,7 @@ function RootLayout() {
               </h2>
               <p>A thirst-quenching drink that combines a juicy, fruit-forward flavor, super-charged hydration taste.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-10px] mr-[40px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fitness</div>
               </div>
             </div>
@@ -211,6 +215,7 @@ function RootLayout() {
               </h2>
               <p>Whip up delicious, rich mashed potatoes in minutes with Idahoan Mashed Potatoes.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Vegetable</div>
               </div>
             </div>
@@ -229,6 +234,7 @@ function RootLayout() {
               </h2>
               <p>A Spicy, bold chicken flavor, fiery, and intensely satisfying of South Korean ramen.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[120px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Instant Noodle</div>
                 <div className="badge badge-outline">South Korean</div>
               </div>
@@ -248,6 +254,7 @@ function RootLayout() {
               </h2>
               <p>Flavored with cold-pressed juice from organic Pink Lady Apples.</p>
               <div className="card-actions justify-end">
+                 <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[17px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fermented tea</div>
                 <div className="badge badge-outline">Probiotic</div>
               </div>
@@ -275,10 +282,11 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Belvoir Farm - Organic Elderflower Lemonade
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>A Refreshing, floral, lemony, sparkling, natural goodness taste of Elderflower lemonade.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[110px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Organic</div>
               </div>
             </div>
@@ -294,10 +302,11 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Daves Killer Bread - Good Seed
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>Bold, Hearty, Sweet. Heavenly texture and saintly flavor, Good Seed is the boldest and sweetest of our breads.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[40px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Bakery</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
@@ -314,17 +323,117 @@ function RootLayout() {
             <div className="card-body">
               <h2 className="card-title">
                 Apple Organic Slices
-                <div className="badge bg-success">NEW</div>
+                <div className="badge bg-green-500">NEW</div>
               </h2>
               <p>Fresh, crisp, and organic apple slices with convenient, healthy, naturally sweetness for taste.</p>
               <div className="card-actions justify-end">
+                <button className="btn btn-lg bg-green-500 mb-[-40px] mr-[50px] mt-[-5px]">Add to Cart</button> {/*Added DaisyUI Component for responsive button*/}
                 <div className="badge badge-outline">Fruit</div>
                 <div className="badge badge-outline">Organic</div>
               </div>
             </div>
           </div>
         </div>
+    {/* 5th section begins here */}
+    <div className="mt-10">
+      {/* Image Container with Text Overlay */}
+      <div className="relative h-80 bg-gray-200 flex items-center justify-center mb-0">
+        {/* Image */}
+        <img
+          src="https://www.napoleon.com/sites/default/files/images/2023-05/grillsBlog-feature-Summer2023.jpg"
+          alt="Summer Savings Banner"
+          className="object-cover h-full w-full"
+        />
+        {/* Text Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold bg-black bg-opacity-50 ">
+          <span>Enjoy Summer with your Family & Friends with Promotions all Season Long</span>
+        </div>
+      </div>
 
+      {/* Summer Promos */}
+      <div className="p-4 bg-yellow-100">
+        <div className="flex space-x-4 overflow-x-auto">
+          {/* Promo 1 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  Buy 2, Get 1 Free
+                </h2>
+                <p>12 pk soda, only including Coca-Cola brands.</p>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Special</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://134775575.cdn6.editmysite.com/uploads/1/3/4/7/134775575/s376408477758671052_p5_i1_w700.jpeg"
+                  alt="Coke Cans"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>
+
+          {/* Promo 2 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  $5 off when you buy $20 of Burger Meat
+                  <div className="badge bg-success ml-2">NEW</div>
+                </h2>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Special</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://www.eatingwell.com/thmb/aKA6WL4j01orJ6F7v9bF4PH6B7Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/air-fryer-cheeseburgers-9e0cf0071bcb4b8d9bc806cabfb61347.jpg"
+                  alt="Foodie's Burger"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>
+
+          {/* Promo 3 */}
+          <div className="card bg-base-100 w-96 shadow-xl flex flex-col p-4">
+            <div className="flex flex-row">
+              {/* Description of Item */}
+              <div className="flex-1 pr-4">
+                <h2 className="card-title">
+                  $1 off Full Sized Foodie's Watermelon
+                  <div className="badge bg-success ml-2">NEW</div>
+                </h2>
+                <p>Offer ends 07/25.</p>
+                <div className="card-actions justify-start mt-2">
+                  <div className="badge badge-outline">Seasonal</div>
+                </div>
+              </div>
+              {/* Image of Item */}
+              <figure className="flex-1">
+                <img
+                  src="https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/seasonal-produce/2018-05/watermelon.jpg?itok=WlQcb2Uh"
+                  alt="Watermelon"
+                  className="object-cover"
+                />
+              </figure>
+            </div>
+            {/* Add to Cart Button */}
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg pr-8 mt-4">Add to Cart</button>
+          </div>        
+        </div>
+      </div>
+    </div>
         
       </main>
     </>
