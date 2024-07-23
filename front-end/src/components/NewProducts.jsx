@@ -1,4 +1,7 @@
 import React from 'react';
+import bgHero from '../assets/bg-hero.png';
+import Header from './Header';
+import ProductCard from './ProductCard';
 
 const NewProducts = () => {
   return (

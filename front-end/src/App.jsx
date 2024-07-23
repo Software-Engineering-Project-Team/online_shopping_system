@@ -26,6 +26,7 @@ import FanFavoritesProducts from './components/FanFavoritesProducts';
 import SeasonalProducts from './components/SeasonalProducts';
 import BBQProducts from './components/BBQProducts';
 import HealthyLivingProducts from './components/HealthyLivingProducts';
+
 import CheckoutSummary from './components/CheckoutSummary';
 
 function App() {
@@ -35,9 +36,10 @@ function App() {
     setCart([...cart, item]);
   };
 
+
   return (
     <Router>
-      <NavBar />
+      <NavBar setSearchQuery={setSearchQuery} setSortType={setSortType} />
       <Routes>
       <Route path="/" element={<RootLayout />} />
         <Route path="/all-products" element={<AllProducts addToCart={addToCart} />} />
@@ -64,7 +66,6 @@ function App() {
         <Route path="/healthy-living" element={<HealthyLivingProducts addToCart={addToCart} />} />
         <Route path="/checkout-summary" element={<CheckoutSummary cart={cart} setCart={setCart} />} />
       </Routes>
-
       <Footer />
     </Router>
   );

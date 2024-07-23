@@ -1,8 +1,11 @@
-import { FaShoppingCart, FaSearch} from "react-icons/fa";
+
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { Link } from "react-router-dom"; 
 
-function Navbar() {
+
+function NavBar({ setSearchQuery, setSortType }) {
   return (
     <>
       <div className="navbar bg-slate-50 flex justify-between items-center">
@@ -14,7 +17,7 @@ function Navbar() {
             Foodie
           </a>
         </div>
-        <div className=" m-4">
+        <div className="m-4">
           <input type="text" placeholder="Search Products..." className="input input-bordered w-full md:w-auto bg-[#30C976] rounded-none bg-opacity-10" />
           <a href="" className="btn btn-ghost bg-[#30C976] rounded-none bg-opacity-80">
             <IconContext.Provider value={{ color: "#fff" }}>
@@ -23,18 +26,21 @@ function Navbar() {
           </a>
         </div>
         <div className="flex justify-between gap-x-4 w-full md:w-auto">
-          <button tabIndex={0} className="btn btn-ghost rounded-none bg-[#30C976] text-xl text-white">
-          Cart
-            <IconContext.Provider value={{ color: "#fff" }}>
-              <MdOutlineShoppingCart size={24} />
-            </IconContext.Provider>
-          </button>
+          <Link to="/checkout-summary">
+            <button tabIndex={0} className="btn btn-ghost rounded-none bg-[#30C976] text-xl text-white">
+              Cart
+              <IconContext.Provider value={{ color: "#fff" }}>
+                <MdOutlineShoppingCart size={24} />
+              </IconContext.Provider>
+            </button>
+          </Link>
           <button tabIndex={0} className="btn btn-ghost rounded-none bg-[#fff] text-xl text-black">Register</button>
           <button tabIndex={0} className="btn btn-ghost rounded-none bg-[#30C976] text-xl text-white">Login</button>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Navbar
+
+export default Navbar;
