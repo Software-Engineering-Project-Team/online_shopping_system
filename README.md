@@ -12,6 +12,7 @@
 
 - [Online-Shopping-System](#online-shopping-system)
   - [Contributors](#contributors)
+
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Product Spec](#product-spec)
@@ -40,6 +41,7 @@ The Online Shopping Project is a comprehensive web application designed to facil
 
 ## Sub-System Functionality
 
+
 What is happening on both ends of development.
 
 1. Front-end Functionality (The interface system with shop customers.)
@@ -64,6 +66,7 @@ The web application is database driven and here is how it's implemented.
 
 ## Demos
 
+
 A visual of the Responsive Web Design.
 
 1. Videos
@@ -73,3 +76,4 @@ A visual of the Responsive Web Design.
 2. Images
 
 **\***Fill in Once Completed**\***
+

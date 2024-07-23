@@ -1,9 +1,11 @@
+
 // Update: Added new headers and useful links to each correlating to Figma prototype. Social Images are added for the grocery store and incorporated the store logo.
 
 // Desc: Footer layout for the website
 import { FaShoppingCart, FaSearch} from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IconContext } from "react-icons";
+
 
 function Footer() {
   return (
