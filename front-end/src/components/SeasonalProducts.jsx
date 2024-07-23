@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { MdDisabledByDefault } from 'react-icons/md';
 
 const seasonalProducts = [

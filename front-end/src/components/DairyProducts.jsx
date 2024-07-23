@@ -1,4 +1,9 @@
 import React from 'react';
+import bgHero from '../assets/bg-hero.png';
+import Header from './Header';
+import ProductCard from './ProductCard';
+import useSortedProducts from '../hooks/useSortedProducts';
+
 
 const dairyProducts = [
   { category: 'Milk', name: 'Lactaid', description: 'Lactose-free milk', image: 'https://m.media-amazon.com/images/I/41rxrbktenL._SX300_SY300_QL70_FMwebp_.jpg', identifiers: ['Milk'], price: ' 4.99' },
@@ -62,6 +67,7 @@ const DairyProducts = ({addToCart}) => {
               </div>
             </div>
           </div>
+
         ))}
       </div>
     </div>

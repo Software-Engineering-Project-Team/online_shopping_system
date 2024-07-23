@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './layouts/NavBar';
@@ -26,35 +26,41 @@ import FanFavoritesProducts from './components/FanFavoritesProducts';
 import SeasonalProducts from './components/SeasonalProducts';
 import BBQProducts from './components/BBQProducts';
 import HealthyLivingProducts from './components/HealthyLivingProducts';
+import SearchResults from './components/SearchResults';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortType, setSortType] = useState('');
+
   return (
     <Router>
-      <NavBar />
+      <NavBar setSearchQuery={setSearchQuery} setSortType={setSortType} />
       <Routes>
         <Route path="/" element={<RootLayout />} />
-        <Route path="/all-products" element={<AllProducts />} />
-        <Route path="/new" element={<NewProducts />} />
-        <Route path="/on-sale" element={<OnSaleProducts />} />
-        <Route path="/dairy" element={<DairyProducts />} />
-        <Route path="/produce" element={<ProduceProducts />} />
-        <Route path="/meat" element={<MeatProducts />} />
-        <Route path="/deli" element={<DeliProducts />} />
-        <Route path="/frozen" element={<FrozenProducts />} />
-        <Route path="/bakery" element={<BakeryProducts />} />
-        <Route path="/snacks" element={<SnacksProducts />} />
-        <Route path="/pantry" element={<PantryProducts />} />
-        <Route path="/breakfast" element={<BreakfastProducts />} />
-        <Route path="/beverages" element={<BeveragesProducts />} />
-        <Route path="/alcohol" element={<AlcoholProducts />} />
-        <Route path="/baby" element={<BabyProducts />} />
-        <Route path="/pet" element={<PetProducts />} />
-        <Route path="/household" element={<HouseholdProducts />} />
-        <Route path="/personal-care" element={<PersonalCareProducts />} />
-        <Route path="/fan-favorites" element={<FanFavoritesProducts />} />
-        <Route path="/seasonal" element={<SeasonalProducts />} />
-        <Route path="/bbq" element={<BBQProducts />} />
-        <Route path="/healthy-living" element={<HealthyLivingProducts />} />
+
+        <Route path="/all-products" element={<AllProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/new" element={<NewProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/on-sale" element={<OnSaleProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/dairy" element={<DairyProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/produce" element={<ProduceProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/meat" element={<MeatProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/deli" element={<DeliProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/frozen" element={<FrozenProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/bakery" element={<BakeryProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/snacks" element={<SnacksProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/pantry" element={<PantryProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/breakfast" element={<BreakfastProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/beverages" element={<BeveragesProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/alcohol" element={<AlcoholProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/baby" element={<BabyProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/pet" element={<PetProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/household" element={<HouseholdProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/personal-care" element={<PersonalCareProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/fan-favorites" element={<FanFavoritesProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/seasonal" element={<SeasonalProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/bbq" element={<BBQProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/healthy-living" element={<HealthyLivingProducts searchQuery={searchQuery} sortType={sortType} />} />
+        <Route path="/search" element={<SearchResults searchQuery={searchQuery} sortType={sortType} />} />
       </Routes>
       <Footer />
     </Router>
