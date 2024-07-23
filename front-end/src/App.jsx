@@ -37,6 +37,7 @@ function App() {
       <NavBar setSearchQuery={setSearchQuery} setSortType={setSortType} />
       <Routes>
         <Route path="/" element={<RootLayout />} />
+
         <Route path="/all-products" element={<AllProducts searchQuery={searchQuery} sortType={sortType} />} />
         <Route path="/new" element={<NewProducts searchQuery={searchQuery} sortType={sortType} />} />
         <Route path="/on-sale" element={<OnSaleProducts searchQuery={searchQuery} sortType={sortType} />} />
