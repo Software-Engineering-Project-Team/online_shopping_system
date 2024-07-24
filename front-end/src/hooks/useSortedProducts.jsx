@@ -11,7 +11,16 @@ const useSortedProducts = (products, searchQuery, sortType) => {
       product.identifiers.some(identifier => identifier.toLowerCase().includes(query))
     );
 
-    const sorted = filteredProducts
+    // Remove duplicates based on the product name
+    const uniqueProducts = filteredProducts.reduce((acc, current) => {
+      const x = acc.find(item => item.name === current.name);
+      if (!x) {
+        return acc.concat([current]);
+      }
+      return acc;
+    }, []);
+
+    const sorted = uniqueProducts
       .filter(product => product.availability > 0)
       .sort((a, b) => {
         if (sortType === 'price') {
