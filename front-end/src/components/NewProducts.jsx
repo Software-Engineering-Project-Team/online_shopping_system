@@ -22,28 +22,28 @@ import { newSeasonalProducts } from './SeasonalProducts';
 import { newBBQProducts } from './BBQProducts';
 import useSortedProducts from '../hooks/useSortedProducts';
 
-const NewProducts = ({ setSearchQuery, searchQuery, sortType }) => {
-  const allNewProducts = [
-    ...newAlcoholProducts,
-    ...newBakeryProducts,
-    ...newBabyProducts,
-    ...newBeveragesProducts,
-    ...newBreakfastProducts,
-    ...newDairyProducts,
-    ...newDeliProducts,
-    ...newFrozenProducts,
-    ...newHealthyLivingProducts,
-    ...newHouseholdProducts,
-    ...newMeatProducts,
-    ...newPantryProducts,
-    ...newPersonalCareProducts,
-    ...newPetProducts,
-    ...newProduceProducts,
-    ...newSnacksProducts,
-    ...newSeasonalProducts,
-    ...newBBQProducts,
-  ];
+const allNewProducts = [
+  ...newAlcoholProducts,
+  ...newBakeryProducts,
+  ...newBabyProducts,
+  ...newBeveragesProducts,
+  ...newBreakfastProducts,
+  ...newDairyProducts,
+  ...newDeliProducts,
+  ...newFrozenProducts,
+  ...newHealthyLivingProducts,
+  ...newHouseholdProducts,
+  ...newMeatProducts,
+  ...newPantryProducts,
+  ...newPersonalCareProducts,
+  ...newPetProducts,
+  ...newProduceProducts,
+  ...newSnacksProducts,
+  ...newSeasonalProducts,
+  ...newBBQProducts,
+];
 
+const NewProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   const { sortedProducts } = useSortedProducts(allNewProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -62,4 +62,5 @@ const NewProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   );
 };
 
+export { allNewProducts };
 export default NewProducts;

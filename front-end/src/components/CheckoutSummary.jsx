@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { CartContext } from '../components/CartContext';
 
-const CheckoutSummary = ({ cart, setCart }) => {
+const CheckoutSummary = () => {
+  const { cart, removeFromCart } = useContext(CartContext);
+
   const TAX_RATE = 0.0825;
   const DISCOUNT_CODES = {
     'TAKE10': 0.1,
@@ -12,14 +15,8 @@ const CheckoutSummary = ({ cart, setCart }) => {
   const [discountApplied, setDiscountApplied] = useState(false);
   const [error, setError] = useState('');
 
-  const handleRemoveItem = (name) => {
-    const newCart = cart.filter(item => item.name !== name);
-    setCart(newCart);
-  };
-
   const calculateSubtotal = () => {
-    // Ensure item.price is treated as a number
-    return cart.reduce((total, item) => total + (Number(item.price) || 0) * (Number(item.quantity) || 1), 0);
+    return cart.reduce((total, item) => total + (Number(item.price) || 0) * item.quantity, 0);
   };
 
   const calculateDiscount = (subtotal) => {
@@ -40,6 +37,10 @@ const CheckoutSummary = ({ cart, setCart }) => {
     }
   };
 
+  const handleRemoveItem = (name) => {
+    removeFromCart(name);
+  };
+
   const subtotal = calculateSubtotal();
   const discount = calculateDiscount(subtotal);
   const subtotalAfterDiscount = subtotal - discount;
@@ -55,7 +56,6 @@ const CheckoutSummary = ({ cart, setCart }) => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
       <p className="mb-4">Subtotal ({cart.length} items): ${formattedSubtotal}</p>
-
       <div className="flex">
         <div className="w-2/3 p-4">
           {cart.map((item) => (
@@ -64,12 +64,13 @@ const CheckoutSummary = ({ cart, setCart }) => {
               <div className="ml-4 flex-1">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p className="text-gray-500">{item.description}</p>
+                <p className="text-lg font-semibold">Quantity: {item.quantity}</p>
               </div>
               <div className="ml-4">
                 <p className="text-lg font-semibold">${(Number(item.price) || 0).toFixed(2)}</p>
               </div>
               <button 
-                className="ml-4 bg-green-500 text-white rounded-full p-2"
+                className="ml-4 bg-red-500 text-white rounded-full p-2"
                 onClick={() => handleRemoveItem(item.name)}
               >
                 Remove
@@ -77,7 +78,6 @@ const CheckoutSummary = ({ cart, setCart }) => {
             </div>
           ))}
         </div>
-
         <div className="w-1/3 p-4 border rounded-lg shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
           <div className="flex justify-between mb-2">

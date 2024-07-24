@@ -121,3 +121,24 @@ export {
   newBBQProducts,
   allProducts,
 };
+
+export const allNewProducts = [
+    ...newAlcoholProducts,
+    ...newBakeryProducts,
+    ...newBabyProducts,
+    ...newBeveragesProducts,
+    ...newBreakfastProducts,
+    ...newDairyProducts,
+    ...newDeliProducts,
+    ...newFrozenProducts,
+    ...newHealthyLivingProducts,
+    ...newHouseholdProducts,
+    ...newMeatProducts,
+    ...newPantryProducts,
+    ...newPersonalCareProducts,
+    ...newPetProducts,
+    ...newProduceProducts,
+    ...newSnacksProducts,
+    ...newSeasonalProducts,
+    ...newBBQProducts,
+  ];
