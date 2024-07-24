@@ -3,6 +3,7 @@ import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
 import useSortedProducts from '../hooks/useSortedProducts';
+import SortOptions from './SortOptions';
 
 export const seasonalProducts = [
   { id: 18001, category: 'Summer', name: 'Sunscreen', description: 'SPF 50 broad spectrum sunscreen', image: 'https://m.media-amazon.com/images/I/71MxyR2Z3rL._AC_UL320_.jpg', identifiers: ['Summer'], price: '9.99', availability: 10 },
@@ -32,7 +33,7 @@ export const newSeasonalProducts = [
   { id: 18022, category: 'Summer', name: 'Waterproof Speaker', description: 'Portable waterproof speaker', image: 'https://m.media-amazon.com/images/I/81LMfazlxZL._AC_UL320_.jpg', identifiers: ['Fall'], price: '5.99', availability: 10 }
 ];
 
-const SeasonalProducts = ({ setSearchQuery, searchQuery, sortType }) => {
+const SeasonalProducts = ({ setSearchQuery, searchQuery, sortType, setSortType }) => {
   const { sortedProducts } = useSortedProducts(seasonalProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const SeasonalProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Seasonal Products" bgImage={bgHero} />
+      <SortOptions sortType={sortType} setSortType={setSortType} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedProducts.map((product) => (
           <ProductCard key={product.name} product={product} />

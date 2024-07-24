@@ -21,6 +21,7 @@ import { newSnacksProducts } from './SnacksProducts';
 import { newSeasonalProducts } from './SeasonalProducts';
 import { newBBQProducts } from './BBQProducts';
 import useSortedProducts from '../hooks/useSortedProducts';
+import SortOptions from './SortOptions';
 
 const allNewProducts = [
   ...newAlcoholProducts,
@@ -43,7 +44,7 @@ const allNewProducts = [
   ...newBBQProducts,
 ];
 
-const NewProducts = ({ setSearchQuery, searchQuery, sortType }) => {
+const NewProducts = ({ setSearchQuery, searchQuery, sortType, setSortType }) => {
   const { sortedProducts } = useSortedProducts(allNewProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ const NewProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Recently Added" bgImage={bgHero} />
+      <SortOptions sortType={sortType} setSortType={setSortType} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedProducts.map((product) => (
           <ProductCard key={product.name} product={product} />

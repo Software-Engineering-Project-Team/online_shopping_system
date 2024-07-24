@@ -3,6 +3,7 @@ import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
 import useSortedProducts from '../hooks/useSortedProducts';
+import SortOptions from './SortOptions';
 
 export const alcoholProducts = [
   { id: 1001, category: 'Beer', name: 'Lager', description: 'Crisp and refreshing lager', image: 'https://m.media-amazon.com/images/I/71xDaHTK10L._AC_UL320_.jpg', identifiers: ['Beer'], price: '13.99', availability: 20},
@@ -33,7 +34,7 @@ export const newAlcoholProducts = [
 ];
 
 
-const AlcoholProducts = ({ setSearchQuery, searchQuery, sortType }) => {
+const AlcoholProducts = ({ setSearchQuery, searchQuery, sortType, setSortType }) => {
   const { sortedProducts } = useSortedProducts(alcoholProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const AlcoholProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Alcohol" bgImage={bgHero} />
+      <SortOptions sortType={sortType} setSortType={setSortType} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedProducts.map((product) => (
           <ProductCard key={product.name} product={product} />

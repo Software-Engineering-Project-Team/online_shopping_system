@@ -3,6 +3,7 @@ import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
 import useSortedProducts from '../hooks/useSortedProducts';
+import SortOptions from './SortOptions';
 
 export const personalCareProducts = [
   { id: 15001 , category: 'Skin Care', name: 'Face Moisturizer', description: 'Hydrating face moisturizer', image: 'https://m.media-amazon.com/images/I/71J0BtuYB2L._AC_UL320_.jpg', identifiers: ['Skin Care'], price: '12.99', availability: 10 },
@@ -42,7 +43,7 @@ export const newPersonalCareProducts = [
   { id: 15032, category: 'Skin Care', name: 'Tongue Scrapers', description: 'Steel tongue scrapers for adults', image: 'https://m.media-amazon.com/images/I/81iVh2nCYrL._AC_UL320_.jpg', identifiers: ['Skin Care'], price: '7.99', availability: 10 }
 ];
 
-const PersonalCareProducts = ({ setSearchQuery, searchQuery, sortType }) => {
+const PersonalCareProducts = ({ setSearchQuery, searchQuery, sortType, setSortType }) => {
   const { sortedProducts } = useSortedProducts(personalCareProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const PersonalCareProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Personal Care" bgImage={bgHero} />
+      <SortOptions sortType={sortType} setSortType={setSortType} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedProducts.map((product) => (
           <ProductCard key={product.name} product={product} />

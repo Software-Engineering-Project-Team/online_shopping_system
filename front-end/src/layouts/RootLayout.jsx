@@ -160,7 +160,7 @@ function RootLayout() {
             </div>
           </div>
 
-          <div className="px-4 bg-yellow-100">
+          <div className="mt-20 p-8 bg-yellow-100">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {promoItems.map(product => (
                 <ProductCard key={product.name} product={product} />

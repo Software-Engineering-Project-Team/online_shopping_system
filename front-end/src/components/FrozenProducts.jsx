@@ -3,6 +3,7 @@ import bgHero from '../assets/bg-hero.png';
 import Header from './Header';
 import ProductCard from './ProductCard';
 import useSortedProducts from '../hooks/useSortedProducts';
+import SortOptions from './SortOptions';
 
 export const frozenProducts = [
   { id: 10001, category: 'Vegetables', name: 'Frozen Peas', description: 'Freshly frozen green peas', image: 'https://m.media-amazon.com/images/I/51hjmVF3jgL._AC_UL320_.jpg', identifiers: ['Vegetables', 'Organic'], price: '2.99', availability: 10 },
@@ -40,7 +41,7 @@ export const newFrozenProducts = [
   { id: 10030, category: 'Vegetables', name: 'Frozen Veggies', description: 'Frozen stir-fry blend', image: 'https://m.media-amazon.com/images/I/51pO3UxflXL._AC_UL320_.jpg', identifiers: ['Vegetables'], price: '2.99', availability: 10 }
 ];
 
-const FrozenProducts = ({ setSearchQuery, searchQuery, sortType }) => {
+const FrozenProducts = ({ setSearchQuery, searchQuery, sortType, setSortType }) => {
   const { sortedProducts } = useSortedProducts(frozenProducts, searchQuery, sortType);
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const FrozenProducts = ({ setSearchQuery, searchQuery, sortType }) => {
   return (
     <div className="container mx-auto py-8 px-4 bg-green-200">
       <Header title="Frozen Foods" bgImage={bgHero} />
+      <SortOptions sortType={sortType} setSortType={setSortType} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedProducts.map((product) => (
           <ProductCard key={product.name} product={product} />
