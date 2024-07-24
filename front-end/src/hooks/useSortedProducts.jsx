@@ -23,8 +23,10 @@ const useSortedProducts = (products, searchQuery, sortType) => {
     const sorted = uniqueProducts
       .filter(product => product.availability > 0)
       .sort((a, b) => {
-        if (sortType === 'price') {
+        if (sortType === 'price-asc') {
           return parseFloat(a.price) - parseFloat(b.price);
+        } else if (sortType === 'price-desc') {
+          return parseFloat(b.price) - parseFloat(a.price);
         } else if (sortType === 'availability') {
           return b.availability - a.availability;
         } else {

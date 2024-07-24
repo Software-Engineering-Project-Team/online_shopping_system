@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Ensure useState is imported
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './layouts/NavBar';
@@ -64,7 +64,7 @@ function App() {
           <Route path="/seasonal" element={<SeasonalProducts searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
           <Route path="/bbq" element={<BBQProducts searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
           <Route path="/healthy-living" element={<HealthyLivingProducts searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
-          <Route path="/search" element={<SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} />} />
+          <Route path="/search" element={<SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} sortType={sortType} setSortType={setSortType} />} />
           <Route path="/checkout" element={<CheckoutSummary />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
